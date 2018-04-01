@@ -17,7 +17,7 @@ A Q-learner has been implemented in Python with the Q-function stored in a table
   3. The numerical Q-learner
 
 The flow of information is illustrated in this diagram:
-[![Model building blocks](/images/RL_system_160713.png)]
+![Model building blocks](/images/RL_system_160713.png)
 
 The individual building blocks of the **simulation** are implemented in the following modules:
   * **Current Model State:** Part of the main loop in `system.py`
