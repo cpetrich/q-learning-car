@@ -3,7 +3,7 @@
 This is the code behind https://youtu.be/o7VYaKHq9jw, *Q-learning: car driving narrow track (4)*.
 [![Model building blocks](/images/screenshot_480px.png)](https://youtu.be/o7VYaKHq9jw)
 
-The code is provided as per request in the comments section.
+The code is provided as per request in the youtube comments section.
 
 ## System requirements
   * **Simulation:** Python 2.7 or Python 3. Use of [PyPy](https://pypy.org/) or [PyPy3](https://pypy.org/) implementation is strongly recommended. No external dependencies.
