@@ -16,6 +16,7 @@ if _sys.version_info.major != 2:
 # Date: 2016
 #   Apr 2018: modified for Python 3
 #   Apr 2018: modified for matplotlib 2
+#   Sep 2019: add conditional code block to show car on training tracks rather than test tracks
 
 do_write_mp4 = False # works with Py 2.7 & matplotlib 1 but not Py 3.6 & matplotlib 2. TODO: Need to figure out why.
 
@@ -455,7 +456,19 @@ if __name__=='__main__':
             else:
                 track_scale = track_width_scale = 1.
 
-            p_left, p_right = track_generator.circuit_1(4.*track_width_scale)
+            if True:
+                # plot test track
+                p_left, p_right = track_generator.circuit_1(4.*track_width_scale)
+            else:
+                # plot tracks used for training
+                road_width = 3.8+1.2*random.random()
+                p_left, p_right = track_generator.circuit(35.,15.,road_width*track_width_scale)
+                # tracks are centered at (0|0), move them to the center
+                #   of the plot area instead:
+                ctr_x, ctr_y = 75, 50
+                p_left = [(x+ctr_x, y+ctr_y) for x, y in p_left]
+                p_right = [(x+ctr_x, y+ctr_y) for x, y in p_right]
+
             p_left = [(p[0]*track_scale, p[1]*track_scale) for p in p_left]
             p_right = [(p[0]*track_scale, p[1]*track_scale) for p in p_right]
             #p_left, p_right = track_generator.circuit_straight(400,40,2*4.)
